@@ -3,21 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'users',
-    loadChildren: () => import('./modules/users/users-module').then(m => m.UsersModule)
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('./modules/products/products-module').then(m => m.ProductsModule)
+    path: 'pokelist',
+    loadChildren: () => import('./modules/pokelist/pokelist-module').then((m) => m.PokelistModule),
   },
   {
     path: '**',
-    redirectTo: 'users'
+    redirectTo: 'pokelist',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
