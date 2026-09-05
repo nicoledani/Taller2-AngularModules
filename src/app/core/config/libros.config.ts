@@ -1,5 +1,10 @@
 import { Libros } from "../../modules/libros/interfaces/libros.interfaces";
 
+/**
+ * Listado de libros para aparecer en la tabla
+ * Esta constante simula una fuente de datos (mock) que representa
+ * informacion de libros
+ */
 export const LIBROS: Libros[] = [
   { 
     id: 1,
