@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListProductsComponent } from './pages/list-products/list-products.component';
+import { ListLibrosComponent } from './pages/list-libros/list-libros.component';
 
 const routes: Routes = [
   {
-    path: 'list-products',
-    component: ListProductsComponent
+    path: 'list-libros',
+    component: ListLibrosComponent
   },
   {
     path: '**',
-    redirectTo: 'list-products'
+    redirectTo: 'list-libros'
   }
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductsRoutingModule { }
+export class LibrosRoutingModule { }
