@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of, throwError } from 'rxjs';
@@ -26,7 +27,8 @@ describe('ListPokelistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListPokelistComponent, TablePokelistComponent]
+      declarations: [ListPokelistComponent, TablePokelistComponent],
+      providers: [provideHttpClient()]
     })
       .compileComponents();
 

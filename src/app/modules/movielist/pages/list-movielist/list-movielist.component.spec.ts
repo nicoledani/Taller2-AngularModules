@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of, throwError } from 'rxjs';
@@ -28,7 +29,8 @@ describe('ListMovielistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListMovielistComponent, CardsMovielistComponent]
+      declarations: [ListMovielistComponent, CardsMovielistComponent],
+      providers: [provideHttpClient()]
     })
       .compileComponents();
 
