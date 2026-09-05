@@ -12,9 +12,8 @@ describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavbarComponent, IconComponent],
-      imports: [RouterTestingModule]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
@@ -48,9 +47,7 @@ describe('NavbarComponent', () => {
   it('debería mostrar el label correcto en cada link', () => {
     const links = fixture.debugElement.queryAll(By.css('a.nav-link'));
     links.forEach((link, index) => {
-      expect(link.nativeElement.textContent.trim())
-        .toBe(NAVBAR_ITEMS[index].label);
+      expect(link.nativeElement.textContent.trim()).toBe(NAVBAR_ITEMS[index].label);
     });
   });
-
 });

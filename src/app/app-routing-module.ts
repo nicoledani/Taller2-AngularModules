@@ -3,6 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'pokelist',
+    loadChildren: () => import('./modules/pokelist/pokelist-module').then((m) => m.PokelistModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'pokelist',
     path: 'movielist',
     loadChildren: () => import('./modules/movielist/movielist-module').then(m => m.MovielistModule)
   },
@@ -20,6 +26,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

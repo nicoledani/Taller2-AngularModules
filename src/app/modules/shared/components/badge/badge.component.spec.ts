@@ -9,9 +9,8 @@ describe('BadgeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BadgeComponent]
-    })
-    .compileComponents();
+      declarations: [BadgeComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BadgeComponent);
     component = fixture.componentInstance;
@@ -55,10 +54,19 @@ describe('BadgeComponent', () => {
   });
 
   it('debería generar clases correctas para múltiples combinaciones', () => {
-    const TYPES: BadgeType[] = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+    const TYPES: BadgeType[] = [
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'warning',
+      'info',
+      'light',
+      'dark',
+    ];
     const TEXTS: BadgeTypeText[] = ['text-white', 'text-dark'];
-    TYPES.forEach(type => {
-      TEXTS.forEach(typeText => {
+    TYPES.forEach((type) => {
+      TEXTS.forEach((typeText) => {
         component.type = type;
         component.typeText = typeText;
         fixture.detectChanges();
@@ -66,5 +74,4 @@ describe('BadgeComponent', () => {
       });
     });
   });
-
 });

@@ -8,9 +8,8 @@ describe('IconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IconComponent]
-    })
-    .compileComponents();
+      declarations: [IconComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IconComponent);
     component = fixture.componentInstance;
@@ -55,5 +54,4 @@ describe('IconComponent', () => {
     iconElement = fixture.debugElement.query(By.css('i'));
     expect(iconElement.nativeElement.classList).toContain('bi-archive');
   });
-
 });

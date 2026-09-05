@@ -14,6 +14,7 @@ import { NavbarItem } from "../../modules/shared/interfaces/navbar.interface";
  * <app-navbar></app-navbar>
  */
 export const NAVBAR_ITEMS: NavbarItem[] = [
+    { label: 'Pokelist', url: '/pokelist' },
     { label: 'Movielist', url: '/movielist' },
     {label: 'Libros', url: '/libros'},
 ] 

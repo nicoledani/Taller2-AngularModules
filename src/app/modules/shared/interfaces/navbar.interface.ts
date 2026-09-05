@@ -11,8 +11,12 @@
  * @example
  * ```ts
  * const item: NavbarItem = {
+ *   label: 'Pokelist',
+ *   url: '/pokelist'
  *   label: 'Movie List',
  *   url: '/movielist'
+ *   label: 'Libros'
+ *   url: '/libros'
  * };
  * ```
  */

@@ -67,38 +67,38 @@ El comando genera un sitio estático con la documentación del proyecto, incluye
 
 ## 🌐 APIs Consumidas
 
-El proyecto consume la [Studio Ghibli API](https://ghibliapi.vercel.app/) para obtener el listado de películas.
+El proyecto consume la [PokéAPI](https://pokeapi.co/) para obtener el listado de pokemones.
 
-### 🔗 Endpoint de películas
+### 🔗 Endpoint de listado
 
-- `GET https://ghibliapi.vercel.app/films`
+- `GET https://pokeapi.co/api/v2/pokemon?limit=10`
 
-Este endpoint devuelve un arreglo de películas (`GhibliFilm[]`) con su información
-(título, imagen del póster, director, año de estreno, duración, descripción, etc.):
+Este endpoint devuelve un objeto con la forma `PokeApiResponse`, donde cada elemento de `results` contiene el `name` y la `url` del detalle del pokemon:
 
 ```json
-[
-  {
-    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
-    "title": "Castle in the Sky",
-    "image": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg",
-    "release_date": "1986",
-    "director": "Hayao Miyazaki"
-  }
-]
+{
+  "count": 1302,
+  "next": null,
+  "previous": null,
+  "results": [
+    { "name": "bulbasaur", "url": "https://pokeapi.co/api/v2/pokemon/1/" }
+  ]
+}
 ```
 
-### 🎬 Presentación de datos
+### 🖼️ Sprites (imágenes)
 
-El servicio `MovielistService` consume la API con `HttpClient` y transforma cada
-película cruda (`GhibliFilm`) en un objeto `Movie` listo para la vista, con los
-campos `id`, `title`, `image` y `releaseDate`.
+- `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{id}.png`
+
+Debido a que el endpoint de listado no incluye la imagen, el servicio `PokelistService` extrae el `id` de la `url` de cada pokemon y construye la URL del sprite usando el CDN oficial de PokéAPI.
 
 ### ⚙️ Configuración
 
-El valor de la API está centralizado en `src/app/core/config/movielist.config.ts`:
+Los valores de la API están centralizados en `src/app/core/config/pokelist.config.ts`:
 
-- `MOVIE_API_URL`: URL base de la Studio Ghibli API.
+- `POKEMON_API_URL`: URL base de la PokéAPI.
+- `POKEMON_LIMIT`: cantidad de pokemones solicitados por petición.
+- `POKEMON_IMAGE_BASE_URL`: CDN oficial de sprites.
 
 ## ⚙️ Generación de Archivos con Angular CLI
 A continuación se presentan los comandos más utilizados para generar módulos y componentes.
@@ -109,11 +109,16 @@ A continuación se presentan los comandos más utilizados para generar módulos 
 
 #### Ejemplo:
 
+```ng g m modules/pokelist --routing```
 ```ng g m modules/movielist --routing```
 
 #### Archivos Generados
 
 ```
+src/app/modules/pokelist
+├──pokelist-module.ts
+└──pokelist-routing-module.ts
+
 src/app/modules/movielist
 ├──movielist-module.ts
 └──movielist-routing-module.ts
@@ -125,11 +130,19 @@ src/app/modules/movielist
 
 #### Ejemplo:
 
+```ng g c modules/pokelist/components/table-pokelist --standalone=false```
+
 ```ng g c modules/movielist/components/cards-movielist --standalone=false```
 
 #### Archivos Generados
 
 ```
+src/app/modules/pokelist/components/table-pokelist/
+├── table-pokelist.component.html
+├── table-pokelist.component.scss
+├── table-pokelist.component.spec.ts
+└── table-pokelist.component.ts
+
 src/app/modules/movielist/components/cards-movielist/
 ├── cards-movielist.component.html
 ├── cards-movielist.component.scss
@@ -143,11 +156,19 @@ src/app/modules/movielist/components/cards-movielist/
 
 #### Ejemplo:
 
+```ng g c modules/pokelist/components/table-pokelist/table-pokelist.component --standalone=false --flat```
+
 ```ng g c modules/movielist/components/cards-movielist/cards-movielist.component --standalone=false --flat```
 
 #### Archivos Generados
 
 ```
+src/app/modules/pokelist/components/table-pokelist/
+├──table-pokelist.component.html
+├──table-pokelist.component.scss
+├──table-pokelist.component.spec.ts
+└──table-pokelist.component.ts
+
 src/app/modules/movielist/components/cards-movielist/
 ├──cards-movielist.component.html
 ├──cards-movielist.component.scss

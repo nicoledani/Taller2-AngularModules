@@ -7,19 +7,9 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared-module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    SharedModule,
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [SharedModule, CommonModule, BrowserModule, AppRoutingModule],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

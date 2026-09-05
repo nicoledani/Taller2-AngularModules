@@ -6,19 +6,8 @@ import { IconComponent } from './components/icon/icon.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [
-    BadgeComponent,
-    IconComponent,
-    NavbarComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-  ],
-  exports: [
-    BadgeComponent,
-    IconComponent,
-    NavbarComponent,
-  ]
+  declarations: [BadgeComponent, IconComponent, NavbarComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [BadgeComponent, IconComponent, NavbarComponent],
 })
-export class SharedModule { }
+export class SharedModule {}
