@@ -65,6 +65,41 @@ El comando genera un sitio estático con la documentación del proyecto, incluye
 
 ```npm run compodoc```
 
+## 🌐 APIs Consumidas
+
+El proyecto consume la [PokéAPI](https://pokeapi.co/) para obtener el listado de pokemones.
+
+### 🔗 Endpoint de listado
+
+- `GET https://pokeapi.co/api/v2/pokemon?limit=10`
+
+Este endpoint devuelve un objeto con la forma `PokeApiResponse`, donde cada elemento de `results` contiene el `name` y la `url` del detalle del pokemon:
+
+```json
+{
+  "count": 1302,
+  "next": null,
+  "previous": null,
+  "results": [
+    { "name": "bulbasaur", "url": "https://pokeapi.co/api/v2/pokemon/1/" }
+  ]
+}
+```
+
+### 🖼️ Sprites (imágenes)
+
+- `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{id}.png`
+
+Debido a que el endpoint de listado no incluye la imagen, el servicio `PokelistService` extrae el `id` de la `url` de cada pokemon y construye la URL del sprite usando el CDN oficial de PokéAPI.
+
+### ⚙️ Configuración
+
+Los valores de la API están centralizados en `src/app/core/config/pokelist.config.ts`:
+
+- `POKEMON_API_URL`: URL base de la PokéAPI.
+- `POKEMON_LIMIT`: cantidad de pokemones solicitados por petición.
+- `POKEMON_IMAGE_BASE_URL`: CDN oficial de sprites.
+
 ## ⚙️ Generación de Archivos con Angular CLI
 A continuación se presentan los comandos más utilizados para generar módulos y componentes.
 
@@ -74,14 +109,14 @@ A continuación se presentan los comandos más utilizados para generar módulos 
 
 #### Ejemplo:
 
-```ng g m modules/users --routing```
+```ng g m modules/pokelist --routing```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users
-├──users.module.ts
-└──users-routing.module.ts
+src/app/modules/pokelist
+├──pokelist-module.ts
+└──pokelist-routing-module.ts
 ```
 
 ### 🧩 Generar un componente (con carpeta propia)
@@ -90,16 +125,16 @@ src/app/modules/users
 
 #### Ejemplo:
 
-```ng g c modules/users/components/table-users --standalone=false```
+```ng g c modules/pokelist/components/table-pokelist --standalone=false```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users/components/table-users/
-├── table-users.html
-├── table-users.scss
-├── table-users.spec.ts
-└── table-users.ts
+src/app/modules/pokelist/components/table-pokelist/
+├── table-pokelist.component.html
+├── table-pokelist.component.scss
+├── table-pokelist.component.spec.ts
+└── table-pokelist.component.ts
 ```
 
 ### 📄 Generar un componente sin carpeta (--flat)
@@ -108,16 +143,16 @@ src/app/modules/users/components/table-users/
 
 #### Ejemplo:
 
-```ng g c modules/users/components/table-users/table-users.component --standalone=false --flat```
+```ng g c modules/pokelist/components/table-pokelist/table-pokelist.component --standalone=false --flat```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users/components/table-users/
-├──table-users.component.html
-├──table-users.component.scss
-├──table-users.component.spec.ts
-└──table-users.component.ts
+src/app/modules/pokelist/components/table-pokelist/
+├──table-pokelist.component.html
+├──table-pokelist.component.scss
+├──table-pokelist.component.spec.ts
+└──table-pokelist.component.ts
 ```
 
 ### 🎓 Observaciones Importantes

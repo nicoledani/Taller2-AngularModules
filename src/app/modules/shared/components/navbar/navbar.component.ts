@@ -45,7 +45,7 @@ export class NavbarComponent {
    * Inicializa los elementos del navbar a partir de la
    * configuración definida en el core de la aplicación.
    */
-  constructor(){
+  constructor() {
     this.navbarItems = NAVBAR_ITEMS;
   }
 }

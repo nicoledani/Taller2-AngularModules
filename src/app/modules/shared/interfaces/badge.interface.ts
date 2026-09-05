@@ -1,4 +1,4 @@
-import { Themes } from "../../../core/interfaces/themes.interface";
+import { Themes } from '../../../core/interfaces/themes.interface';
 
 /**
  * Tipo de badge basado en los temas globales de la aplicación.

@@ -23,7 +23,7 @@ import { BadgeType, BadgeTypeText } from '../../interfaces/badge.interface';
  */
 @Component({
   selector: 'app-badge',
-  template: `<span class="badge" [class]="getClass()" >{{ text }}</span>`,
+  template: `<span class="badge" [class]="getClass()">{{ text }}</span>`,
   standalone: false,
 })
 export class BadgeComponent {
@@ -68,6 +68,6 @@ export class BadgeComponent {
    * ```
    */
   getClass(): string {
-    return `bg-${this.type} ${this.typeText}`
+    return `bg-${this.type} ${this.typeText}`;
   }
 }
