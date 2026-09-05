@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-libros.component',
   standalone: false,
-  templateUrl: './libros.component.html',
-  styleUrl: './libros.component.scss',
+  template: '<h1>Libros<h1>',
 })
 export class LibrosComponent {
 
