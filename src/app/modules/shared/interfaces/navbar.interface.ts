@@ -11,22 +11,22 @@
  * @example
  * ```ts
  * const item: NavbarItem = {
- *   label: 'Usuarios',
- *   url: '/users'
+ *   label: 'Movie List',
+ *   url: '/movielist'
  * };
  * ```
  */
 export interface NavbarItem {
-    /**
-     * Texto que se muestra en la opción del menú.
-     */
-    label: string;
+  /**
+   * Texto que se muestra en la opción del menú.
+   */
+  label: string;
 
-    /**
-     * Ruta asociada al ítem de navegación.
-     *
-     * @remarks
-     * Debe coincidir con una ruta configurada en el RouterModule.
-     */
-    url: string;
+  /**
+   * Ruta asociada al ítem de navegación.
+   *
+   * @remarks
+   * Debe coincidir con una ruta configurada en el RouterModule.
+   */
+  url: string;
 }
