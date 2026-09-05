@@ -5,7 +5,7 @@ import { LibrosService } from '../../services/libros.service';
 @Component({
   selector: 'app-list-libros.component',
   standalone: false,
-  template: '<app-table-libros></app-table-libros>',
+  template: '<app-table-libros [libros]="libros"></app-table-libros>',
 })
 export class ListLibrosComponent {
   libros: Libros[] = [];

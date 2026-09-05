@@ -2,7 +2,7 @@ export interface Libros {
     id: number;
     titulo: string;
     autor: string;
-    añoPublicacion: number;
+    Publicacion: number;
     categoria: CategoriaLibro;
     paginas: number;
 }
