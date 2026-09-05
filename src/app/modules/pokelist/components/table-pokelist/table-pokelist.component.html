@@ -1,0 +1,20 @@
+<table class="table table-striped border">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Imagen</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (pokemon of pokemons; track pokemon.id) {
+			<tr>
+				<th scope="row">{{ pokemon.id }}</th>
+				<td>{{ pokemon.name }}</td>
+				<td>
+					<img [src]="pokemon.image" [alt]="pokemon.name" width="48" height="48" />
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
