@@ -65,6 +65,41 @@ El comando genera un sitio estático con la documentación del proyecto, incluye
 
 ```npm run compodoc```
 
+## 🌐 APIs Consumidas
+
+El proyecto consume la [Studio Ghibli API](https://ghibliapi.vercel.app/) para obtener el listado de películas.
+
+### 🔗 Endpoint de películas
+
+- `GET https://ghibliapi.vercel.app/films`
+
+Este endpoint devuelve un arreglo de películas (`GhibliFilm[]`) con su información
+(título, imagen del póster, director, año de estreno, duración, descripción, etc.):
+
+```json
+[
+  {
+    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
+    "title": "Castle in the Sky",
+    "image": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg",
+    "release_date": "1986",
+    "director": "Hayao Miyazaki"
+  }
+]
+```
+
+### 🎬 Presentación de datos
+
+El servicio `MovielistService` consume la API con `HttpClient` y transforma cada
+película cruda (`GhibliFilm`) en un objeto `Movie` listo para la vista, con los
+campos `id`, `title`, `image` y `releaseDate`.
+
+### ⚙️ Configuración
+
+El valor de la API está centralizado en `src/app/core/config/movielist.config.ts`:
+
+- `MOVIE_API_URL`: URL base de la Studio Ghibli API.
+
 ## ⚙️ Generación de Archivos con Angular CLI
 A continuación se presentan los comandos más utilizados para generar módulos y componentes.
 
@@ -74,14 +109,14 @@ A continuación se presentan los comandos más utilizados para generar módulos 
 
 #### Ejemplo:
 
-```ng g m modules/users --routing```
+```ng g m modules/movielist --routing```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users
-├──users.module.ts
-└──users-routing.module.ts
+src/app/modules/movielist
+├──movielist-module.ts
+└──movielist-routing-module.ts
 ```
 
 ### 🧩 Generar un componente (con carpeta propia)
@@ -90,16 +125,16 @@ src/app/modules/users
 
 #### Ejemplo:
 
-```ng g c modules/users/components/table-users --standalone=false```
+```ng g c modules/movielist/components/cards-movielist --standalone=false```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users/components/table-users/
-├── table-users.html
-├── table-users.scss
-├── table-users.spec.ts
-└── table-users.ts
+src/app/modules/movielist/components/cards-movielist/
+├── cards-movielist.component.html
+├── cards-movielist.component.scss
+├── cards-movielist.component.spec.ts
+└── cards-movielist.component.ts
 ```
 
 ### 📄 Generar un componente sin carpeta (--flat)
@@ -108,16 +143,16 @@ src/app/modules/users/components/table-users/
 
 #### Ejemplo:
 
-```ng g c modules/users/components/table-users/table-users.component --standalone=false --flat```
+```ng g c modules/movielist/components/cards-movielist/cards-movielist.component --standalone=false --flat```
 
 #### Archivos Generados
 
 ```
-src/app/modules/users/components/table-users/
-├──table-users.component.html
-├──table-users.component.scss
-├──table-users.component.spec.ts
-└──table-users.component.ts
+src/app/modules/movielist/components/cards-movielist/
+├──cards-movielist.component.html
+├──cards-movielist.component.scss
+├──cards-movielist.component.spec.ts
+└──cards-movielist.component.ts
 ```
 
 ### 🎓 Observaciones Importantes
