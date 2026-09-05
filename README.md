@@ -110,6 +110,7 @@ A continuación se presentan los comandos más utilizados para generar módulos 
 #### Ejemplo:
 
 ```ng g m modules/pokelist --routing```
+```ng g m modules/movielist --routing```
 
 #### Archivos Generados
 
@@ -117,6 +118,10 @@ A continuación se presentan los comandos más utilizados para generar módulos 
 src/app/modules/pokelist
 ├──pokelist-module.ts
 └──pokelist-routing-module.ts
+
+src/app/modules/movielist
+├──movielist-module.ts
+└──movielist-routing-module.ts
 ```
 
 ### 🧩 Generar un componente (con carpeta propia)
@@ -127,6 +132,8 @@ src/app/modules/pokelist
 
 ```ng g c modules/pokelist/components/table-pokelist --standalone=false```
 
+```ng g c modules/movielist/components/cards-movielist --standalone=false```
+
 #### Archivos Generados
 
 ```
@@ -135,6 +142,12 @@ src/app/modules/pokelist/components/table-pokelist/
 ├── table-pokelist.component.scss
 ├── table-pokelist.component.spec.ts
 └── table-pokelist.component.ts
+
+src/app/modules/movielist/components/cards-movielist/
+├── cards-movielist.component.html
+├── cards-movielist.component.scss
+├── cards-movielist.component.spec.ts
+└── cards-movielist.component.ts
 ```
 
 ### 📄 Generar un componente sin carpeta (--flat)
@@ -145,6 +158,8 @@ src/app/modules/pokelist/components/table-pokelist/
 
 ```ng g c modules/pokelist/components/table-pokelist/table-pokelist.component --standalone=false --flat```
 
+```ng g c modules/movielist/components/cards-movielist/cards-movielist.component --standalone=false --flat```
+
 #### Archivos Generados
 
 ```
@@ -153,6 +168,12 @@ src/app/modules/pokelist/components/table-pokelist/
 ├──table-pokelist.component.scss
 ├──table-pokelist.component.spec.ts
 └──table-pokelist.component.ts
+
+src/app/modules/movielist/components/cards-movielist/
+├──cards-movielist.component.html
+├──cards-movielist.component.scss
+├──cards-movielist.component.spec.ts
+└──cards-movielist.component.ts
 ```
 
 ### 🎓 Observaciones Importantes

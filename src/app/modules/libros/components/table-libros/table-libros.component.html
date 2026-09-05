@@ -1,0 +1,29 @@
+<table class="table table-striped border">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Título</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Año</th>
+      <th scope="col">Páginas</th>
+      <th scope="col">Categoría</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (libro of libros; track libro) {
+      <tr>
+        <th scope="row">{{ libro.id }}</th>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.Publicacion }}</td>
+        <td>{{ libro.paginas }}</td>
+        <td>
+          <app-badge 
+            [text]="libro.categoria"
+            [type]="categoryMap[libro.categoria]" >
+          </app-badge>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
